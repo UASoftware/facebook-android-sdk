@@ -5,6 +5,14 @@
          It contains the path to the SDK. It should *NOT* be checked into
          Version Control Systems. -->
     <property file="local.properties" />
+    
+	<property environment="env" />
+	<!-- load sdk.dir from environment-->
+	<condition property="sdk.dir" value="${env.ANDROID_SDK_HOME}">
+		<not>
+			<isset property="sdk.dir" />
+		</not>
+	</condition>    
 
     <!-- The ant.properties file can be created by you. It is only edited by the
          'android' tool to add properties to it.
